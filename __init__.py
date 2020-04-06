@@ -13,6 +13,7 @@ class TalanthusRadio(MycroftSkill):
 
         print('Sending speak message...')
         client.emit(Message('play:query', data={'phrase': 'talanthus radio'}))
+        client.emit(Message('mycroft.audio.service.pause'))
         
 def create_skill():
     return TalanthusRadio()
