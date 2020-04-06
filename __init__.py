@@ -1,5 +1,5 @@
 from mycroft import MycroftSkill, intent_file_handler
-
+from mycroft_bus_client import MessageBusClient, Message
 
 class TalanthusRadio(MycroftSkill):
     def __init__(self):
@@ -7,9 +7,13 @@ class TalanthusRadio(MycroftSkill):
 
     @intent_file_handler('radio.talanthus.intent')
     def handle_radio_talanthus(self, message):
-        self.speak_dialog('radio.talanthus')
+        print('Setting up client to connect to a local mycroft instance')
+        client = MessageBusClient()
+        client.run_in_thread()
 
-
+        print('Sending speak message...')
+        client.emit(Message('speak', data={'utterance': 'Hello World'}))
+        
 def create_skill():
     return TalanthusRadio()
 
