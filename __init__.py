@@ -12,7 +12,7 @@ class TalanthusRadio(MycroftSkill):
         client.run_in_thread()
 
         print('Sending speak message...')
-        client.emit(Message('speak', data={'utterance': 'Hello World'}))
+        client.emit(Message('speak', data={'utterance': 'Play Talanthus Radio'}))
         
 def create_skill():
     return TalanthusRadio()
