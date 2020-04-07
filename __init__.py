@@ -12,7 +12,7 @@ class TalanthusRadio(MycroftSkill):
         client.run_in_thread()
 
         print('Sending speak message...')
-        client.emit(Message('play:speak', data={'phrase': 'words'}))
+        client.emit(Message('speak', data={'utterance': 'Currently at the top of the bounty board is the calamo five at 1000000 credits'}))
         
 def create_skill():
     return TalanthusRadio()
